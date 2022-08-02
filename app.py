@@ -96,7 +96,7 @@ product_sales_figure.update_layout(
     xaxis=(dict(showgrid=False))
 )
 
-st.plotly_chart(product_sales_figure)
+product_sales_figure.update_xaxes(range=[45000, 50000])
 
 # Sales by Hour
 sales_by_hour = df_with_filters.groupby(by=["hour"]).sum()[["Total"]]
@@ -115,6 +115,7 @@ hourly_sales_figure.update_layout(
     yaxis=(dict(showgrid=False)),
 )
 
+hourly_sales_figure.update_yaxes(range=[20000,40000])
 
 left, right = st.columns(2)
 left.plotly_chart(hourly_sales_figure, use_container_width=True)
